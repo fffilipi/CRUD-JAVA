@@ -7,43 +7,39 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 public class ClasseConexao {
-	
-	//Vamos criar um objeto para fazer a conex„o:
+
+	// Vamos criar um objeto para fazer a conex√£o:
 	public static Connection conexao = null;
-				
+
 	public static Connection Conectar () {
-	
-		//Vamos criar uma variavel com as configuraÁıes de acesso ao banco de dados:
-		
+
+		//Vamos criar uma variavel com as configura√ß√µes de acesso ao banco de dados:
+
 		try {
-			if(conexao == null)
-			{
-			String config = "jdbc:mysql://localhost/escola"; // alterar aqui no novo projeto
-			
-			//vamos conectar com base de dados:
-			conexao = DriverManager.getConnection(config, "root", "");
-			}else conexao = null;
-		}catch(SQLException e) {
+			if (conexao == null {
+				// Alterar aqui para um novo projeto
+				String config = "jdbc:mysql://localhost/escola";
+				// Conectar com base de dados
+				conexao = DriverManager.getConnection(config, "root", "");
+			} else  {
+				conexao = null;
+			}
+
+		} catch(SQLException e) {
 			e.printStackTrace(); // imprime erro na tela caso ocorrer o erro
 		}
-		
 			return conexao;
 		}
-	
-	
-	//MÈtodo para fechar a conex„o
-	
+
+	// M√©todo para fechar a conex√£o
 	public static void FecharConexao (Connection c) {
 		try {
 			if (c !=null) {
 				c.close();
 			}
-		}catch(SQLException e ) {
+		} catch(SQLException e ) {
 			e.printStackTrace(); // imprime o erro na tela.
 		}
-	
 	}
-		
 }
